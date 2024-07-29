@@ -7,7 +7,6 @@ const OccupationDataController = (req, res) => {
             return res.status(500).send(err);
         }
         res.json(result);
-        console.log(result);
     });
 };
 
