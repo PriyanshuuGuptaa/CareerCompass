@@ -1,6 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function App() {
   const API_URL = "http://localhost:8000";
@@ -8,9 +10,12 @@ function App() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [filterOccupations, setFilterOccupations] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetchOccupationData();
   }, []);
+
   const fetchOccupationData = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/occupations`);
@@ -20,6 +25,7 @@ function App() {
       console.error('Error fetching occupation data:', error);
     }
   };
+
   const searchOccupationKeyword = (e) => {
     var value = e.target.value;
     setInputValue(value);
@@ -32,6 +38,10 @@ function App() {
     else (setShowDropdown(false))
   }
 
+  const handleOccupation = async (code) => {
+    navigate(`/profile/summary/${code}`);
+    setShowDropdown(false);
+  }
   return (
 
     <div className="App">
@@ -41,7 +51,7 @@ function App() {
       {showDropdown && (<ul>
         {filterOccupations.map((occ) => {
           return (
-            <li onClick={() => { setInputValue(occ.title) }}>{occ.title}</li>
+            <li key={occ.onetsoc_code} onClick={() => { setInputValue(occ.title); handleOccupation(occ.onetsoc_code) }}>{occ.title}</li>
           )
         })}
       </ul>)}

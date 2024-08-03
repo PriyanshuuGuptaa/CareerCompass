@@ -6,7 +6,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "src": "npm start --prefix ./src",
-    "dev": "concurrently \"npm run server\"npm run client"
+    "dev": "concurrently \"npm run server\"npm start  src"
   },
   "keywords": [],
   "author": "",
