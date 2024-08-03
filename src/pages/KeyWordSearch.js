@@ -30,8 +30,8 @@ function KeyWordSearch() {
 
     return (
         <div>
-            <div className='bg-black'>
-                <ul>
+            <div >
+                <ul >
                     {taskData.map((elem) => (
                         <li key={elem.id}>{elem.task}</li>
                     ))}

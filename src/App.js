@@ -1,4 +1,3 @@
-import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +43,8 @@ function App() {
   }
   return (
 
-    <div className="App">
+    <div>
+
       <label>Enter the keyword</label>
 
       <input type='text' id="occupation_keyword" onFocus={() => setShowDropdown(true)} onChange={searchOccupationKeyword} value={inputValue} />
