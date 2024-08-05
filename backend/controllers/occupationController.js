@@ -11,13 +11,16 @@ const OccupationDataController = (req, res) => {
     });
 };
 
-const Occupation_Tasks = (req, res) => {
+const Occupation_Summary = (req, res) => {
     const { code } = req.params;
-    console.log(code);
 
-    const query = `SELECT * FROM task_statements WHERE onetsoc_code =  '${code}' `;
+    const query = `
+        SELECT task_statements.*, knowledge.*
+        FROM task_statements
+        LEFT JOIN knowledge ON task_statements.onetsoc_code = knowledge.onetsoc_code
+        WHERE task_statements.onetsoc_code = ${code}`;
 
-    db.query(query, code, (error, results) => {
+    db.query(query, [code], (error, results) => {
         if (error) {
             console.error('Error executing query:', error);
             res.status(500).send('Server error');
@@ -28,4 +31,5 @@ const Occupation_Tasks = (req, res) => {
     });
 };
 
-module.exports = { OccupationDataController, Occupation_Tasks };
+
+module.exports = { OccupationDataController, Occupation_Summary };

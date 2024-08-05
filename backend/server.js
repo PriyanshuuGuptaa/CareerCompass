@@ -11,7 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api', occupationRoutes);
-app.use('/api/task_statement/:code', Occupation_Tasks);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

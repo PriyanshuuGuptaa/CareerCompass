@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-function KeyWordSearch() {
+function ProfileSummary() {
     const { code } = useParams();
     const [taskData, setTaskData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,12 +11,14 @@ function KeyWordSearch() {
     useEffect(() => {
         const fetchTaskData = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/task_statement/${code}`);
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/profilesummary/${code}`);
                 if (res.status === 200) {
                     setTaskData(res.data);
+                    console.log(res.data)
                 }
             } catch (err) {
                 setError(err.message);
+                console.log(err)
             } finally {
                 setLoading(false);
             }
@@ -30,7 +32,7 @@ function KeyWordSearch() {
 
     return (
         <div>
-            <div >
+            <div>
                 <ul >
                     {taskData.map((elem) => (
                         <li key={elem.id}>{elem.task}</li>
@@ -41,4 +43,4 @@ function KeyWordSearch() {
     );
 }
 
-export default KeyWordSearch;
+export default ProfileSummary;
