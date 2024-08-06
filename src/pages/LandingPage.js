@@ -45,7 +45,7 @@ function LandingPage() {
     }
     return (
         <div className='landing-page-container relative w-screen'>
-            {/* <div className=' navbar p-0 bg-white flex z-10  absolute top-12 shadow-lg w-fit gap-10 left-0 right-0 mx-auto text-black'>
+            <div className=' navbar p-0 bg-white flex z-10  absolute top-12 shadow-lg w-fit gap-10 left-0 right-0 mx-auto text-black'>
                 <div className='py-10 px-24'>logo</div>
                 <div className='nav flex'>
                     <div>Home</div>
@@ -94,7 +94,7 @@ function LandingPage() {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-            </div> */}
+            </div>
             <label>Enter the keyword</label>
 
             <input type='text' id="occupation_keyword" onFocus={() => setShowDropdown(true)} onChange={searchOccupationKeyword} value={inputValue} />
