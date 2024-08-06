@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import background from "../Assets/background.jpeg";
-import "./LandingPage.css"
+import "./LandingPage.css";
+import { FaPhoneVolume } from "react-icons/fa6";
+
 
 function LandingPage() {
     const [occupationData, setOccupationData] = useState([]);
@@ -42,8 +44,8 @@ function LandingPage() {
         setShowDropdown(false);
     }
     return (
-        <div className='landing-page-container'>
-            <div className=' navbar mx-auto bg-white flex z-10 sticky top-12 shadow-lg w-fit gap-20'>
+        <div className='landing-page-container relative w-screen'>
+            {/* <div className=' navbar p-0 bg-white flex z-10  absolute top-12 shadow-lg w-fit gap-10 left-0 right-0 mx-auto text-black'>
                 <div className='py-10 px-24'>logo</div>
                 <div className='nav flex'>
                     <div>Home</div>
@@ -52,13 +54,13 @@ function LandingPage() {
                     <div>Field</div>
                     <div>Community</div>
                 </div>
-                <div className=' bg-custom-yellow py-10 px-24 '>Contact</div>
+                <div className=' bg-custom-yellow py-10 px-20 text-white text-lg '><span className='flex justify-center items-center gap-2'><FaPhoneVolume />+91 9982839012</span></div>
             </div>
 
-            <div className="carousel w-full">
-                <div id="slide1" className="carousel-item relative w-full">
+            <div className="carousel w-full absolute ">
+                <div id="slide1" className="carousel-item relative w-full my-0">
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+                        src={background}
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <a href="#slide4" className="btn btn-circle">❮</a>
@@ -67,7 +69,7 @@ function LandingPage() {
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+                        src={background}
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <a href="#slide1" className="btn btn-circle">❮</a>
@@ -76,7 +78,7 @@ function LandingPage() {
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+                        src={background}
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <a href="#slide2" className="btn btn-circle">❮</a>
@@ -85,15 +87,15 @@ function LandingPage() {
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
                     <img
-                        src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+                        src={background}
                         className="w-full" />
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                         <a href="#slide3" className="btn btn-circle">❮</a>
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-            </div>
-            {/* <label>Enter the keyword</label>
+            </div> */}
+            <label>Enter the keyword</label>
 
             <input type='text' id="occupation_keyword" onFocus={() => setShowDropdown(true)} onChange={searchOccupationKeyword} value={inputValue} />
             {showDropdown && (<ul>
@@ -102,7 +104,7 @@ function LandingPage() {
                         <li key={occ.onetsoc_code} onClick={() => { setInputValue(occ.title); handleOccupation(occ.onetsoc_code) }}>{occ.title}</li>
                     )
                 })}
-            </ul>)} */}
+            </ul>)}
 
         </div>
     )

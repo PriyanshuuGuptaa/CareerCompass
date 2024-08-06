@@ -1,3 +1,10 @@
 .nav div {
     padding: 40px;
+    font-weight: 600;
+
+}
+
+.navbar {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
